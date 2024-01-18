@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  db:
+    image: "mysql:8.0"
+    container_name: batch-practice
+    restart: always
+    ports:
+      - "3400:3306"
+    volumes:
+      - ./database:/var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: spring_batch
